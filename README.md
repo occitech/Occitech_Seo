@@ -79,3 +79,7 @@ For both grid and list mode, insert this code after the closing list item `</li>
         ->toHtml();
 ?>
 ```
+
+## Licence
+
+[MIT Licence](http://opensource.org/licenses/MIT)
