@@ -1,0 +1,23 @@
+<div itemscope itemtype="http://schema.org/Product">
+    <?php foreach ($this->getMicrodata() as $prop => $content): ?>
+        <?php if (!is_array($content)): ?>
+            <meta itemprop="<?= $prop ?>" content="<?= $this->stripTags($content) ?>"/>
+        <?php else:?>
+            <?php foreach($content as $offerProp => $offerContent):?>
+                <div itemprop="<?= $prop ?>" itemscope itemtype="<?= $offerContent['url'] ?>">
+                    <?php foreach ($offerContent['props'] as $propKey => $subContent): ?>
+                        <?php if ($propKey == 'itemOffered'): ?>
+                            <div itemprop="<?php echo $propKey;?>" itemscope itemtype="http://schema.org/Product">
+                                <?php foreach($subContent as $itemOfferedPropKey => $itemOfferedPropContent): ?>
+                                    <meta itemprop="<?= $itemOfferedPropKey ?>" content="<?= $this->stripTags($itemOfferedPropContent) ?>" />
+                                <?php endforeach; ?>
+                            </div>
+                        <?php else: ?>
+                            <meta itemprop="<?= $propKey ?>" content="<?= $this->stripTags($subContent) ?>"/>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</div>

@@ -1,0 +1,12 @@
+{
+    "name": "occitech/seo",
+    "description": "Magento module gathering good SEO practices.",
+    "type": "magento-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Occitech",
+            "email": "contact@occitech.fr"
+        }
+    ]
+}
