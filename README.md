@@ -53,19 +53,19 @@ For now some template have to be modified.
 The `<head>` tag should look like this:
 
 ```php
-<head <?php echo Mage::helper('occitech/seo')->webSiteElementRoot(); ?>>
+<head <?php echo Mage::helper('occitech_seo')->webSiteElementRoot(); ?>>
 ```
 
 The `<body>` tag should look like this:
 
 ```php
-<body […] <?php echo Mage::helper('occitech/seo')->webPageElementRoot() ?>>
+<body […] <?php echo Mage::helper('occitech_seo')->webPageElementRoot() ?>>
 ```
 
 The `<div>` or whatever tag surround `<?php echo $this->getChildHtml('content') ?>` should look like this:
 
 ```php
-<div […] <?php echo Mage::helper('occitech/seo')->itemprop('mainContentOfPage') ?>>
+<div […] <?php echo Mage::helper('occitech_seo')->itemprop('mainContentOfPage') ?>>
 ```
 
 ### `catalog/product/list.phtml`
