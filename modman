@@ -1,0 +1,4 @@
+app/etc/modules/Occitech_Seo.xml                                     app/etc/modules/Occitech_Seo.xml
+app/code/community/Occitech/Seo/                                     app/code/community/Occitech/Seo/
+app/design/frontend/base/default/layout/occitech_seo.xml             app/design/frontend/base/default/layout/occitech_seo.xml
+app/design/frontend/base/default/template/occitech/seo/              app/design/frontend/base/default/template/occitech/seo/
