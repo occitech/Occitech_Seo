@@ -1,7 +1,7 @@
 <div itemscope itemtype="http://schema.org/Product">
     <?php foreach ($this->getMicrodata() as $prop => $content): ?>
         <?php if (!is_array($content)): ?>
-            <meta itemprop="<?= $prop ?>" content="<?= $this->stripTags($content) ?>"/>
+            <meta itemprop="<?= $prop ?>" content="<?= htmlspecialchars($this->stripTags($content)) ?>"/>
         <?php else:?>
             <?php foreach($content as $offerProp => $offerContent):?>
                 <div itemprop="<?= $prop ?>" itemscope itemtype="<?= $offerContent['url'] ?>">
