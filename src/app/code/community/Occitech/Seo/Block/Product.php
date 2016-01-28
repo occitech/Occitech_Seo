@@ -42,6 +42,7 @@ class Occitech_Seo_Block_Product extends Mage_Core_Block_Template
 		$microdata = array(
 			'name' => $product->getName(),
 			'description' => $product->getShortDescription(),
+			'image' => $product->getImageUrl(),
 			'sku' => $product->getSku(),
 			'offers' => array(
 				array(
