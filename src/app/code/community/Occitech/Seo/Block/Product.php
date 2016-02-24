@@ -14,7 +14,6 @@ class Occitech_Seo_Block_Product extends Mage_Core_Block_Template
 			'cache_lifetime' => self::CACHE_TIME,
 			'cache_tags'  => array(Mage_Catalog_Model_Product::CACHE_TAG . '_' . $this->_getProduct()->getId(), Mage_Core_Model_Store_Group::CACHE_TAG, self::CACHE_TAG),
 		));
-
 	}
 
 	protected function _getProduct()
@@ -36,7 +35,6 @@ class Occitech_Seo_Block_Product extends Mage_Core_Block_Template
 
 	public function getMicrodata()
 	{
-
 		$product = $this->_getProduct();
 
 		$microdata = array(
@@ -118,7 +116,6 @@ class Occitech_Seo_Block_Product extends Mage_Core_Block_Template
 		if ($product->getSpecialToDate()) {
 			$microdata['offers'][0]['props']['priceValidUntil'] = $product->getSpecialToDate();
 		}
-
 		return $microdata;
 	}
 
@@ -147,7 +144,6 @@ class Occitech_Seo_Block_Product extends Mage_Core_Block_Template
 	private function generateMicrodataOfferFor($children)
 	{
 		$offers = array();
-
 		foreach ($children as $child) {
 			$offers[] = array(
 				'url' => 'http://schema.org/Offer',
