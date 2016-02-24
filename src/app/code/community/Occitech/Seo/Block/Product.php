@@ -88,6 +88,11 @@ class Occitech_Seo_Block_Product extends Mage_Core_Block_Template
 		return $microdata;
 	}
 
+	public function sanitizeMetaContent($content)
+	{
+		return $this->quoteEscape($this->stripTags($content));
+	}
+
 	protected function _formatNumber($number)
 	{
 		return number_format($number, 2, '.', '');
