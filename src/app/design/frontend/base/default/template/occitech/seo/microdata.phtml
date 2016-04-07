@@ -3,14 +3,22 @@
     <?php foreach ($this->getMicrodata() as $prop => $content): ?>
         <?php if (!is_array($content)): ?>
             <meta itemprop="<?= $prop ?>" content="<?= $this->sanitizeMetaContent($content) ?>"/>
-        <?php else:?>
-            <?php foreach($content as $offerProp => $offerContent):?>
+        <?php else: ?>
+            <?php foreach ($content as $offerProp => $offerContent): ?>
                 <div itemprop="<?= $prop ?>" itemscope itemtype="<?= $offerContent['url'] ?>">
                     <?php foreach ($offerContent['props'] as $propKey => $subContent): ?>
                         <?php if ($propKey == 'itemOffered'): ?>
-                            <div itemprop="<?php echo $propKey;?>" itemscope itemtype="http://schema.org/Product">
+                            <div itemprop="<?php echo $propKey; ?>" itemscope itemtype="http://schema.org/Product">
                                 <?php foreach ($subContent as $itemOfferedPropKey => $itemOfferedPropContent): ?>
-                                    <meta itemprop="<?= $itemOfferedPropKey ?>" content="<?= $this->sanitizeMetaContent($itemOfferedPropContent) ?>" />
+                                    <meta itemprop="<?= $itemOfferedPropKey ?>"
+                                          content="<?= $this->sanitizeMetaContent($itemOfferedPropContent) ?>"/>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php elseif ($propKey == 'reviewRating'): ?>
+                            <div itemprop="<?php echo $propKey; ?>" itemscope itemtype="http://schema.org/Review">
+                                <?php foreach ($subContent as $itemReviewPropKey => $itemReviewPropContent): ?>
+                                    <meta itemprop="<?= $itemReviewPropKey ?>"
+                                          content="<?= $this->sanitizeMetaContent($itemReviewPropContent) ?>"/>
                                 <?php endforeach; ?>
                             </div>
                         <?php else: ?>
