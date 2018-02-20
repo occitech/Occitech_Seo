@@ -58,6 +58,16 @@ class Occitech_Seo_Block_Product extends Mage_Core_Block_Template
 		$productReviews = $this->_getProductReview($product);
 
 		if (self::USE_MAGENTO_REVIEW && !empty($productReviews)) {
+			$microdata['aggregateRating'][] = array(
+				'url' => 'http://schema.org/AggregateRating',
+				'props' => array(
+					'ratingValue' => $product->getRatingSummary()->getRatingSummary(),
+					'reviewCount' => $product->getRatingSummary()->getReviewsCount(),
+					'bestRating' => 100,
+					'worstRating' => 0,
+				),
+			);
+
 			foreach ($productReviews as $review) {
 				$microdata['reviews'][] = array(
 					'url' => 'http://schema.org/Review',
