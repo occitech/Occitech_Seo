@@ -14,13 +14,6 @@
                                           content="<?= $this->sanitizeMetaContent($itemOfferedPropContent) ?>"/>
                                 <?php endforeach; ?>
                             </div>
-                        <?php elseif ($propKey == 'reviewRating'): ?>
-                            <div itemprop="<?php echo $propKey; ?>" itemscope itemtype="http://schema.org/Review">
-                                <?php foreach ($subContent as $itemReviewPropKey => $itemReviewPropContent): ?>
-                                    <meta itemprop="<?= $itemReviewPropKey ?>"
-                                          content="<?= $this->sanitizeMetaContent($itemReviewPropContent) ?>"/>
-                                <?php endforeach; ?>
-                            </div>
                         <?php else: ?>
                             <meta itemprop="<?= $propKey ?>" content="<?= $this->sanitizeMetaContent($subContent) ?>"/>
                         <?php endif; ?>
