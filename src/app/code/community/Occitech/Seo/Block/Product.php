@@ -60,6 +60,7 @@ class Occitech_Seo_Block_Product extends Mage_Core_Block_Template
 		if (self::USE_MAGENTO_REVIEW && count($productReviews)) {
 			$reviewSummary = Mage::getModel('review/review_summary')
 				->getCollection()
+                                ->addStoreFilter(Mage::app()->getStore()->getId())
 				->addEntityFilter($product->getId())
 				->getFirstItem();
 
