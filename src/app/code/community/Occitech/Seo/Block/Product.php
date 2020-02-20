@@ -172,6 +172,13 @@ class Occitech_Seo_Block_Product extends Mage_Core_Block_Template
 						'name' => $child->getName(),
 						'description' => $child->getShortDescription(),
 						'sku' => $child->getSku(),
+						'offers' => array(
+							'url' => 'http://schema.org/Offer',
+							'props' => array(
+									'price' => $this->_formatNumber($child->getFinalPrice()),
+									'priceCurrency' => Mage::app()->getStore()->getCurrentCurrencyCode(),
+							)
+						)
 					)
 				),
 			);
